@@ -1,3 +1,5 @@
+import {Text, TouchableOpacity} from "react-native";
+
 const React = require('react');
 const { Navigation } = require('react-native-navigation');
 const ScrollViewScreen = require('./ScrollViewScreen');
@@ -10,6 +12,10 @@ const CustomTextButton = require('./CustomTextButton');
 const TopBarBackground = require('./TopBarBackground');
 const KeyboardScreen = require('./KeyboardScreen');
 const Screens = require('./Screens');
+
+const CustomTopBarButton = ( )=> {
+  return <Text>TEST BUTTON</Text>
+}
 
 function registerScreens() {
   Navigation.registerComponent(Screens.Layouts, () => require('./LayoutsScreen'));
@@ -38,6 +44,7 @@ function registerScreens() {
   Navigation.registerComponent(Screens.OrientationDetect, () => require('./OrientationDetectScreen'));
   Navigation.registerComponent(Screens.Search, () => require('./SearchScreen'));
   Navigation.registerComponent(Screens.ExternalComponent, () => require('./ExternalComponentScreen'));
+  Navigation.registerComponent('CUSTOM_TOP_BAR_BUTTON', () => CustomTopBarButton);
 
   const { ContextProvider } = require('../context');
   const ContextScreen = require('./ContextScreen');

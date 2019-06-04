@@ -26,8 +26,24 @@ class SideMenuCenterScreen extends React.Component {
       <Root componentId={this.props.componentId}>
         <Button label='Open Left' testID={OPEN_LEFT_SIDE_MENU_BTN} onPress={() => this.open('left')} />
         <Button label='Open Right' testID={OPEN_RIGHT_SIDE_MENU_BTN} onPress={() => this.open('right')} />
+        <Button label='MERGE OPTIONS' testID={'MERGE_OPTIONS_TEST'} onPress={this.execMergeOptions} />
       </Root>
     );
+  }
+
+  execMergeOptions = () => {
+    Navigation.mergeOptions(this, {
+      topBar: {
+        leftButtons: [
+          {
+            id: 'CUSTOM_BUTTON_ID',
+            component: {
+              name: 'CUSTOM_TOP_BAR_BUTTON',
+            }
+          }
+        ],
+      }
+    })
   }
 
   open = (side) => Navigation.mergeOptions(this, {
